@@ -24,7 +24,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 !(async () => {
-  console.log(`\n【抢京豆脚本】优先账号内部互相助力，有剩余次数再助力\n`)
+  console.log(`\n【抢京豆脚本】优先账号内部互相助力，有剩余次数再助力【zero205】\n`)
   await getAuthorShareCode();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
@@ -227,7 +227,7 @@ function getShareCode() {
 function getAuthorShareCode() {
   return new Promise(resolve => {
     $.get({
-      url: "https://raw.githubusercontent.com/ugg999999/Profiles/master/shareCodes/jd_updateBeanHome.json",
+      url: "https://raw.fastgit.org/ugg999999/Profiles/master/shareCodes/jd_updateBeanHome.json",
       headers: {
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
       }
@@ -235,7 +235,7 @@ function getAuthorShareCode() {
       try {
         if (err) {
         } else {
-          $.authorCode = JSON.parse(data);
+          $.authorCode = JSON.parse(data) || []
         }
       } catch (e) {
         $.logErr(e, resp)
