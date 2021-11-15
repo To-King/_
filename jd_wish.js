@@ -25,8 +25,8 @@ let message = '', allMessage = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let appIdArr = ['1E1NXxq0', '1FV1VwKc', '1FFRWxaY', '1FFVQyqw', '1FV1ZwKY', '1FFdSxqw'];
-let appNameArr = ['众筹许愿池', '惊喜大作战', '荣耀钞能力', '1111点心动', '好物好生活', '焕新带电生活'];
+let appIdArr = ['1E1NXxq0', '1FFRWxaY', '1FFVQyqw', '1FFdSxqw'];
+let appNameArr = ['众筹许愿池', '荣耀钞能力', '1111点心动', '焕新带电生活'];
 let appId, appName;
 $.shareCode = [];
 if ($.isNode()) {
@@ -78,7 +78,12 @@ if ($.isNode()) {
     await $.wait(1000)
     res = await getAuthorShareCode('https://raw.fastgit.org/ugg999999/Profiles/master/shareCodes/wish.json')
   }
-  $.shareCode = [...$.shareCode, ...(res || [])]
+  let res2 = await getAuthorShareCode('https://raw.githubusercontent.com/zero205/updateTeam/main/shareCodes/wish.json')
+  if (!res2) {
+    await $.wait(1000)
+    res2 = await getAuthorShareCode('https://raw.fastgit.org/zero205/updateTeam/main/shareCodes/wish.json')
+  }
+  $.shareCode = [...$.shareCode, ...(res || []), ...(res2 || [])]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
