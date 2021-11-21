@@ -20,16 +20,16 @@ var tools= []
     for (let i in cookiesArr) {
         cookie = cookiesArr[i]
         if(kois.indexOf(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])!=-1){
-                var num="";
-                for(var g=0;g<6;g++)
-                {
-                     num+=Math.floor(Math.random()*10);
-                }
+            var num="";
+            for(var g=0;g<6;g++)
+            {
+                num+=Math.floor(Math.random()*10);
+            }
             var data = await requestApi('h5launch',cookie,{
-                 "followShop":0,
-                 "random": num,
-                 "log":"42588613~8,~0iuxyee",
-                 "sceneid":"JLHBhPageh5"
+                "followShop":0,
+                "random": num,
+                "log":"42588613~8,~0iuxyee",
+                "sceneid":"JLHBhPageh5"
             });
             switch (data?.data?.result?.status) {
                 case 1://火爆
@@ -41,7 +41,7 @@ var tools= []
                         helps.push({redPacketId: data.data.result.redPacketId, success: false, id: i, cookie: cookie})
                     }
                     continue;
-            }   
+            }
             data = await requestApi('h5activityIndex',cookie,{
                 "isjdapp":1
             });
@@ -58,7 +58,7 @@ var tools= []
                     break;
             }
         }
-        tools.push({id: i, cookie: cookie})   
+        tools.push({id: i, cookie: cookie})
     }
     for(let help of helps){
         open(help)
@@ -66,17 +66,17 @@ var tools= []
     await $.wait(60000)
 })()  .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-  })
-  .finally(() => {
-    $.done();
-  })
+})
+    .finally(() => {
+        $.done();
+    })
 
 function open(help){
     var num="";
     for(var i=0;i<6;i++)
     {
         num+=Math.floor(Math.random()*10);
-        }
+    }
     var tool = tools.pop()
     if(!tool)return
     if(help.success)return
@@ -94,9 +94,9 @@ function open(help){
         } else if (!data) {
             tools.unshift(tool)
         }
-        console.log(`${tool.id}->${help.id}`, desc)   
-        open(help)         
-    })   
+        console.log(`${tool.id}->${help.id}`, desc)
+        open(help)
+    })
 }
 function requestApi(functionId, cookie, body = {}) {
     return new Promise(resolve => {
