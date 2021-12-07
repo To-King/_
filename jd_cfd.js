@@ -95,7 +95,7 @@ if ($.isNode()) {
   if (!res) {
     $.http.get({url: 'https://purge.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/cfd.json'}).then((resp) => {}).catch((e) => console.log('刷新CDN异常', e));
     await $.wait(1000)
-    res = await getAuthorShareCode('https://raw.fastgit.org/ugg999999/Profiles/master/shareCodes/cfd.json')
+    res = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/ugg999999/Profiles/shareCodes/cfd.json')
   }
   let res2 = await getAuthorShareCode('https://raw.githubusercontent.com/ugg999999/Profiles/master/shareCodes/cfd.json')
   if (!res2) {
