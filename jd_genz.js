@@ -8,7 +8,7 @@ const $ = new Env("芥么赚豪礼");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = ''
-let appid = "yX3KNttlA6GbZjHuDz0-WQ", typeid = "44782287613952";
+let appid = "", typeid = "";
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
