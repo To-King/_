@@ -1124,7 +1124,7 @@ async function sendNotify(text, desp, params = {}, author = '') {
 
 	//提供6种通知
 	if (strAuthor)
-		desp += '\n\n本通知 By ' + strAuthor + "\n通知时间: " + GetDateTime(new Date());
+		desp += ' ' + strAuthor + "\n通知时间: " + GetDateTime(new Date());
 	else
 		desp += author + "\n通知时间: " + GetDateTime(new Date());
 
@@ -1204,7 +1204,7 @@ async function sendNotifybyWxPucher(text, desp, PtPin, author = '') {
 				WP_UIDS_ONE = Uid;
 				console.log("正在发送一对一通知,请稍后...");
 				if (strAuthor)
-					desp += '\n\n本通知 By ' + strAuthor;
+					desp += '' + strAuthor;
 				else
 					desp += author;
 				await wxpusherNotifyByOne(text, desp);
@@ -1561,7 +1561,7 @@ function qywxamNotify(text, desp) {
 						textcard: {
 							title: `${text}`,
 							description: `${desp}`,
-							url: 'https://github.com/whyour/qinglong',
+							url: '',
 							btntxt: '更多',
 						},
 					};
