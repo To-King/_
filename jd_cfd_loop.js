@@ -76,10 +76,10 @@ if ($.isNode()) {
         await $.wait(time)
       }
     }
-  } while (count < (process.env.CFD_LOOP_LIMIT || 10)*1)
+  } while (count < 25)
 })()
-  .catch((e) => $.logErr(e))
-  .finally(() => $.done());
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done());
 
 async function cfd() {
   try {
