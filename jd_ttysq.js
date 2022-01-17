@@ -149,8 +149,8 @@ const JD_API_HOST = `https://m.jingxi.com`;
     };
     if ($.message) await notify.sendNotify(`${$.name}`, `${message}\n`);
 })()
-.catch((e) => $.logErr(e))
-.finally(() => $.done())
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done())
 
 function getAuthorShareCode(url) {
     return new Promise(async resolve => {
