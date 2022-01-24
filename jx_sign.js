@@ -60,7 +60,7 @@ if ($.isNode()) {
       UA = `jdpingou;iPhone;4.13.0;14.4.2;${randomString(40)};network/wifi;model/iPhone10,2;appBuild/100609;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/${Math.random * 98 + 1};pap/JA2019_3111789;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
       UAInfo[$.UserName] = UA
       if (isLoginInfo[$.UserName] === false) {
-      
+
       } else {
         if (!isLoginInfo[$.UserName]) {
           await TotalBean();
@@ -89,7 +89,7 @@ if ($.isNode()) {
       $.nickName = '';
       message = '';
       if (isLoginInfo[$.UserName] === false) {
-      
+
       } else {
         if (!isLoginInfo[$.UserName]) {
           await TotalBean();
@@ -132,12 +132,12 @@ if ($.isNode()) {
     }
   }
 })()
-  .catch((e) => {
-    $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
-  })
-  .finally(() => {
-    $.done();
-  })
+    .catch((e) => {
+      $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
+    })
+    .finally(() => {
+      $.done();
+    })
 
 async function main(help = true) {
   $.commonlist = []
@@ -331,27 +331,27 @@ function dotask(task) {
   }
   return new Promise((resolve) => {
     $.get(taskUrl("signhb/dotask", body), async (err, resp, data) => {
-        try {
-          if (err) {
-            console.log(JSON.stringify(err));
-            console.log(`${$.name} dotask API请求失败，请检查网路重试`);
+      try {
+        if (err) {
+          console.log(JSON.stringify(err));
+          console.log(`${$.name} dotask API请求失败，请检查网路重试`);
+        } else {
+          data = JSON.parse(data.match(new RegExp(/jsonpCBK.?\((.*);*/))[1])
+          if (data.ret === 0) {
+            console.log($.signhb_source === '5' ? `完成任务 获得${data.sendxd}喜豆` : `完成任务 获得${data.sendhb}红包`);
+          } else if (data.ret === 1003) {
+            console.log(`此账号已黑`);
+            $.black = true;
           } else {
-            data = JSON.parse(data.match(new RegExp(/jsonpCBK.?\((.*);*/))[1])
-            if (data.ret === 0) {
-              console.log($.signhb_source === '5' ? `完成任务 获得${data.sendxd}喜豆` : `完成任务 获得${data.sendhb}红包`);
-            } else if (data.ret === 1003) {
-              console.log(`此账号已黑`);
-              $.black = true;
-            } else {
-              console.log(JSON.stringify(data));
-            }
+            console.log(JSON.stringify(data));
           }
-        } catch (e) {
-          $.logErr(e, resp);
-        } finally {
-          resolve(data);
         }
-      });
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve(data);
+      }
+    });
   });
 }
 
