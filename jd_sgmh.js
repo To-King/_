@@ -29,8 +29,8 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let appId = '1EFRXxg' , homeDataFunPrefix = 'interact_template', collectScoreFunPrefix = 'harmony', message = ''
 let lotteryResultFunPrefix = homeDataFunPrefix, browseTime = 6
 const inviteCodes = [
-  'T018v_V1SBYR8V3WIhmb1ACjVQmoaT5kRrbA@T0225KkcRh9P9FbRKUygl_UJcgCjVQmoaT5kRrbA',
-  'T018v_V1SBYR8V3WIhmb1ACjVQmoaT5kRrbA@T0225KkcRh9P9FbRKUygl_UJcgCjVQmoaT5kRrbA',
+  'T010-6okSRsb8gCjVQmoaT5kRrbA',
+  'T010-6okSRsb8gCjVQmoaT5kRrbA',
 ];
 const randomCount = $.isNode() ? 20 : 5;
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -312,16 +312,13 @@ function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
     $.get({
-      url: `https://cdn.nz.lu/api/sgmh/${randomCount}`,
-      headers: {
-        'Host':'api.jdsharecode.xyz'
-      },
-      timeout: 10000
+      url: ``,
+      'timeout': 10000
     }, (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
+          //console.log(`${JSON.stringify(err)}`)
+          //console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (data) {
             console.log(`随机取${randomCount}个码放到您固定的互助码后面(不影响已有固定互助)`)
