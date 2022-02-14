@@ -37,13 +37,13 @@ const $ = new Env('京喜工厂');
 const JD_API_HOST = 'https://m.jingxi.com';
 const notify = $.isNode() ? require('./sendNotify') : '';
 //通知级别 1=生产完毕可兑换通知;2=可兑换通知+生产超时通知+兑换超时通知;3=可兑换通知+生产超时通知+兑换超时通知+未选择商品生产通知(前提：已开通京喜工厂活动);默认第2种通知
-let notifyLevel = $.isNode() ? process.env.JXGC_NOTIFY_LEVEL || 1 : 1;
+let notifyLevel = $.isNode() ? process.env.JXGC_NOTIFY_LEVEL || 2 : 2;
 const randomCount = $.isNode() ? 20 : 5;
 let tuanActiveId = ``, hasSend = false;
 const jxOpenUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D`;
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
 const inviteCodes = [
-  'WXaWulq6dXIihMUYZ4jGGA==@vi5FfTrp1naW_ytuLHtkcw==@dXjXycgBvPXOesxkdBQ8ag==@cjDgxhj6RDd9GYj_3zS5RA==@WGo3s1CP5TcN_7eMXvfNEg==@bZQL0bpHsOXgY0bKSkcing==@OYVeRCwJiSjoDuy36iUl9Q==@mcTXkFzMag3NxCfxryxSyA==@VOruzqKhAe0aVr_sM8PGEQ==',
+  'WXaWulq6dXIihMUYZ4jGGA==@vi5FfTrp1naW_ytuLHtkcw==@dXjXycgBvPXOesxkdBQ8ag==@cjDgxhj6RDd9GYj_3zS5RA==@WGo3s1CP5TcN_7eMXvfNEg==@bZQL0bpHsOXgY0bKSkcing==@OYVeRCwJiSjoDuy36iUl9Q==@mcTXkFzMag3NxCfxryxSyA==@VOruzqKhAe0aVr_sM8PGEQ=='
 ];
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 $.tuanIds = [];
@@ -1612,7 +1612,7 @@ async function requestAlgo() {
       "expandParams": ""
     })
   }
-  new Promise(async resolve => {
+  return new Promise(async resolve => {
     $.post(options, (err, resp, data) => {
       try {
         if (err) {
