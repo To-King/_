@@ -107,13 +107,13 @@ $.shareuuid = "d0ad0ee715654280b1f2c6e149b0bae1" //
 //genToken
 function genToken() {
     let config = {
-        url: 'https://api.m.jd.com/client.action?functionId=genToken&clientVersion=10.0.4&build=88641&client=android&d_brand=OPPO&d_model=PCAM00&osVersion=10&screen=2208*1080&partner=oppo&oaid=&openudid=7049442d7e415232&eid=eidAfb0d81231cs3I4yd3GgLRjqcx9qFEcJEmyOMn1BwD8wvLt/pM7ENipVIQXuRiDyQ0FYw2aud9+AhtGqo1Zhp0TsLEgoKZvAWkaXhApgim9hlEyRB&sdkVersion=29&lang=zh_CN&uuid=7049442d7e415232&aid=7049442d7e415232&area=4_48201_54794_0&networkType=wifi&wifiBssid=774de7601b5cddf9aad1ae30f3a3dfc0&uts=0f31TVRjBSsqndu4%2FjgUPz6uymy50MQJ3DxdOrbYUybTe3dL1fv5SZqA7LxGNRtzSOx8fh0f3M1MbIvt421AKNKOpCPfGQrrVUodx%2Fkyzv10ruE8Nej2sOUKwb8tCv2kUQ1xlvckMf%2F%2BQlbGZpk3SF6y3AMv848PpSuaIzc4Wef2Q%2FEVdfQwC5mHEU9bM129HM13EJuyirzz6m2X3KkBMA%3D%3D&uemps=0-0&st=1626585864591&sign=b8c73932c27934ace61d09b492e47cd1&sv=101',
-        body: 'body=%7B%22action%22%3A%22to%22%2C%22to%22%3A%22https%253A%252F%252Flzdz-isv.isvjcloud.com%252Fdingzhi%252Fyili%252Fyangniu%252Factivity%252F5070687%253FactivityId%253Ddz2103100001340201%2526shareUuid%253Dbd93957c016242f6a51194d35449432c%2526adsource%253Dziying%2526shareuserid4minipg%253Du%252FcWHIy7%252Fx3Ij%252BHjfbnnePkaL5GGqMTUc8u%252Fotw2E%252Ba7Ak3lgFoFQlZmf45w8Jzw%2526shopid%253D1000013402%22%7D&',
+        url: 'https://api.m.jd.com/client.action?functionId=genToken&clientVersion=10.4.0&build=92610&client=android&partner=huawei&oaid=&eid=eidAac2081218es4Jy5CznQGR26CP++D2vTU0ycuREzSBx/nKPhujYd+LOlA3ER4aO+NNkNl2nQz4igtcevmtB8K5roYIat8QvXc1m9LJhz6EBssTN81&sdkVersion=29&lang=zh_CN&harmonyOs=0&networkType=wifi&uts=0f31TVRjBStAj5CqWtp%2Bl9lkuiJ5n1KFds7fekn9HtF%2FwFYJ9GDCl1jDMfE%2FwTkfo0kcnnI5LNNvJssRmAZPJnMdrtPypaaZDFvIjNwwArds0NEe6hfwDeBt2stCVgkFk3Gzb929LHrg9nB8YjVIhUFofFks7St3n8rauY0Ej8YboAXvRQwdb5YghRVUaL46iYaKAecIJMZEUBTjjZmn%2BQ%3D%3D&uemps=0-0&ext=%7B%22prstate%22%3A%220%22%2C%22pvcStu%22%3A%221%22%7D&ef=1&ep=%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1645075632894%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22area%22%3A%22CzLpCtYyEP8yCJY1CP81CtUnEK%3D%3D%22%2C%22d_model%22%3A%22Vu9RBUmyEG%3D%3D%22%2C%22wifiBssid%22%3A%22dW5hbw93bq%3D%3D%22%2C%22osVersion%22%3A%22CJK%3D%22%2C%22d_brand%22%3A%22IPVLV0VT%22%2C%22screen%22%3A%22CtO0DyenCNqm%22%2C%22uuid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%2C%22aid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%2C%22openudid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jingdong.app.mall%22%7D&st=1645076453531&sign=108c59ff7202a01c7a8e56954471817b&sv=111',
+        body: 'body=%7B%22action%22%3A%22to%22%2C%22to%22%3A%22https%253A%252F%252Flzdz-isv.isvjcloud.com%252Fdingzhi%252Fyili%252Fyangniu%252Factivity%253FactivityId%253Ddz2103100001340201%2526adsource%253Dziying%22%7D&',
         headers: {
             'Host': 'api.m.jd.com',
             'accept': '*/*',
-            'user-agent': 'JD4iPhone/167490 (iPhone; iOS 14.2; Scale/3.00)',
-            'accept-language': 'zh-Hans-JP;q=1, en-JP;q=0.9, zh-Hant-TW;q=0.8, ja-JP;q=0.7, en-US;q=0.6',
+            'user-agent': 'okhttp/3.12.1;jdmall;android;version/10.4.0;build/92610;',
+            'accept-language': 'zh_CN',
             'content-type': 'application/x-www-form-urlencoded',
             'Cookie': cookie
         }
@@ -141,13 +141,13 @@ function genToken() {
 //获取pin需要用到
 function getToken2() {
     let config = {
-        url: 'https://api.m.jd.com/client.action?functionId=isvObfuscator&clientVersion=10.0.4&build=88641&client=android&d_brand=OPPO&d_model=PCAM00&osVersion=10&screen=2208*1080&partner=oppo&oaid=&openudid=7049442d7e415232&eid=eidAfb0d81231cs3I4yd3GgLRjqcx9qFEcJEmyOMn1BwD8wvLt/pM7ENipVIQXuRiDyQ0FYw2aud9+AhtGqo1Zhp0TsLEgoKZvAWkaXhApgim9hlEyRB&sdkVersion=29&lang=zh_CN&uuid=7049442d7e415232&aid=7049442d7e415232&area=4_48201_54794_0&networkType=wifi&wifiBssid=774de7601b5cddf9aad1ae30f3a3dfc0&uts=0f31TVRjBSsqndu4%2FjgUPz6uymy50MQJ3DxdOrbYUybTe3dL1fv5SZqA7LxGNRtzSOx8fh0f3M1MbIvt421AKNKOpCPfGQrrVUodx%2Fkyzv10ruE8Nej2sOUKwb8tCv2kUQ1xlvckMf%2F%2BQlbGZpk3SF6y3AMv848PpSuaIzc4Wef2Q%2FEVdfQwC5mHEU9bM129HM13EJuyirzz6m2X3KkBMA%3D%3D&uemps=0-0&st=1626585867093&sign=35d78547e97fda4666f0819866a13b19&sv=121',
-        body: 'body=%7B%22id%22%3A%22%22%2C%22url%22%3A%22https%3A%2F%2Flzdz-isv.isvjcloud.com%22%7D&',
+        url: 'https://api.m.jd.com/client.action?functionId=getShopHomeExtendInfo&clientVersion=10.4.0&build=92610&client=android&partner=huawei&oaid=&eid=eidAac2081218es4Jy5CznQGR26CP++D2vTU0ycuREzSBx/nKPhujYd+LOlA3ER4aO+NNkNl2nQz4igtcevmtB8K5roYIat8QvXc1m9LJhz6EBssTN81&sdkVersion=29&lang=zh_CN&harmonyOs=0&networkType=wifi&uts=0f31TVRjBStAj5CqWtp%2Bl9lkuiJ5n1KFds7fekn9HtF%2FwFYJ9GDCl1jDMfE%2FwTkfo0kcnnI5LNNvJssRmAZPJnMdrtPypaaZDFvIjNwwArds0NEe6hfwDeBt2stCVgkFk3Gzb929LHrg9nB8YjVIhUFofFks7St3n8rauY0Ej8YboAXvRQwdb5YghRVUaL46iYaKAecIJMZEUBTjjZmn%2BQ%3D%3D&uemps=0-0&ext=%7B%22prstate%22%3A%220%22%2C%22pvcStu%22%3A%221%22%7D&ef=1&ep=%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1645075632894%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22area%22%3A%22CzLpCtYyEP8yCJY1CP81CtUnEK%3D%3D%22%2C%22d_model%22%3A%22Vu9RBUmyEG%3D%3D%22%2C%22wifiBssid%22%3A%22dW5hbw93bq%3D%3D%22%2C%22osVersion%22%3A%22CJK%3D%22%2C%22d_brand%22%3A%22IPVLV0VT%22%2C%22screen%22%3A%22CtO0DyenCNqm%22%2C%22uuid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%2C%22aid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%2C%22openudid%22%3A%22ZJu1EQO5DwS3ZNc0CNVtYG%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jingdong.app.mall%22%7D&st=1645076451674&sign=cd2c63e815c25d080237515ca9e4337f&sv=121',
+        body: 'body=%7B%22RNVersion%22%3A%220.59.9%22%2C%22abtest%22%3A%22%22%2C%22eid%22%3A%22eidAac2081218es4Jy5CznQGR26CP%2B%2BD2vTU0ycuREzSBx%2FnKPhujYd%2BLOlA3ER4aO%2BNNkNl2nQz4igtcevmtB8K5roYIat8QvXc1m9LJhz6EBssTN81%22%2C%22lat%22%3A%2238.471133%22%2C%22latWs%22%3A%2238.471539%22%2C%22lng%22%3A%22106.188185%22%2C%22lngWs%22%3A%22106.18856%22%2C%22pageClickkey%22%3A%22-1%22%2C%22shopId%22%3A%221000013402%22%2C%22shshshfp%22%3A%22-1%22%2C%22shshshfpa%22%3A%22-1%22%2C%22shshshfpb%22%3A%22JD012145b9ViYYlZEDcr164507630567102zi-Nc6Swy-IK-WVvY0AmMSJTTzzXAIkI1qfn_zYYRRiAOoCKDvk9sOBvw6zkDYNquDaqXiNExGEzMzot7jGpcgMYRQhdkDS00fkkdlr%7EoBjboPgZejcgn6fHgI1M6do7IqUtP27-ABZJyIk2pta7bZzTUG-oximclIzETZZFSzCg-WT7oQbKZWV7zUxlzhe59QPG6dv5tFWMUMVL5elnJJ0LZX5xUIZdn0PHX1wCXgW9TtmC-4wnn_Eetio6sauZzVwkJ00v2RbRhTkUNkjI%22%2C%22source%22%3A%22app-shop%22%2C%22sourceRpc%22%3A%22shop_app_home_home%22%2C%22venderId%22%3A%221000013402%22%7D&',
         headers: {
             'Host': 'api.m.jd.com',
             'accept': '*/*',
-            'user-agent': 'JD4iPhone/167490 (iPhone; iOS 14.2; Scale/3.00)',
-            'accept-language': 'zh-Hans-JP;q=1, en-JP;q=0.9, zh-Hant-TW;q=0.8, ja-JP;q=0.7, en-US;q=0.6',
+            'user-agent': 'okhttp/3.12.1;jdmall;android;version/10.4.0;build/92610;',
+            'accept-language': 'zh_CN',
             'content-type': 'application/x-www-form-urlencoded',
             'Cookie': cookie
         }
