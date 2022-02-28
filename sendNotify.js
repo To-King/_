@@ -198,8 +198,8 @@ if (process.env.PUSH_PLUS_USER) {
 async function sendNotify(
   text,
   desp,
-  params = {'TG交流群':'https://t.me/jd_zero_205'},
-  author = '\n\n请更新拉库命令:https://github.com/zero205/JD_tencent_scf/tree/main',
+  params = {''},
+  author = '',
 ) {
   let no_notify = process.env.no_notify
   if (no_notify) {
