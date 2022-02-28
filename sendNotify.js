@@ -198,8 +198,8 @@ if (process.env.PUSH_PLUS_USER) {
 async function sendNotify(
   text,
   desp,
-  params = {''},
-  author = '',
+  params = {'\n\n'},
+  author = '\n\n',
 ) {
   let no_notify = process.env.no_notify
   if (no_notify) {
