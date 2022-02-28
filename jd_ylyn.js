@@ -3,7 +3,7 @@
 
 如果提示没有养牛 自己手动进去养一只
 活动入口：伊利京东自营旗舰店->伊利牛奶
-27:/￥CFsUh1NLeR%，伊利云养一头牛，赢1分钱得牛奶一提！坚持打卡~每日多个好礼相送哟！快来云养的牛宝宝吧！
+21.0复制整段话 Http:/JnE0bflXQPzN4R 伊利云养一头牛，赢1分钱得牛奶一提！坚持打卡~每日多个好礼相送哟！快来云养的牛宝宝吧！#f1EQN5nQJa%去【椋〣崬】
 
 [task_local]
 #伊利养牛记
@@ -31,9 +31,9 @@ if ($.isNode()) {
 
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
-$.shareuuid = "d0ad0ee715654280b1f2c6e149b0bae1" //
+$.shareuuid = "7eaf779f13f64e2cbb2b1a55fd1de09f" //
     !(async () => {
-        console.log(`入口：27:/￥CFsUh1NLeR%，伊利云养一头牛，赢1分钱得牛奶一提！坚持打卡~每日多个好礼相送哟！快来云养的牛宝宝吧！\n`)
+        console.log(`入口：21.0复制整段话 Http:/JnE0bflXQPzN4R 伊利云养一头牛，赢1分钱得牛奶一提！坚持打卡~每日多个好礼相送哟！快来云养的牛宝宝吧！#f1EQN5nQJa%去【椋〣崬】\n`)
         if (!cookiesArr[0]) {
             $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {
                 "open-url": "https://bean.m.jd.com/"
