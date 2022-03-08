@@ -21,7 +21,7 @@ if (mode) {
     //一键加购
     $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/ec7c72b06a6d44bb9da50491ddb8ecf6?activityId=ec7c72b06a6d44bb9da50491ddb8ecf6'
 }
-
+let stop = false;
 $.s = 1
 if ($.activityUrl.includes('activityId') > -1) {
     $.activityId = $.activityUrl.match(/activityId=([^&]+)/)
@@ -38,21 +38,27 @@ $.logic = async function () {
         return;
     }
     $.activityUrl = $.activityUrl.replace("#","&")
+    $.activityId = $.getQueryString($.activityUrl, 'activityId')
     if (!$.activityId || !$.activityUrl) {
-        stop = true;
+       // stop = true;
         $.log(`活动不存在`);
         return
     }
     $.log(`活动地址: ${$.activityUrl}`)
     $.UA = `jdapp;iPhone;10.2.2;13.1.2;${$.uuid()};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167863;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
     let lzToken = await getLzToken();
+    debugger
     if (typeof lzToken.data == 'string') {
         if (lzToken.data.match(/(活动已经结束)/) && lzToken.data.match(/(活动已经结束)/)[1]
             || '') {
             $.putMsg('活动已结束');
-            stop = true
-            return
+            //stop = true
+            //return
+        }else {
+            console.log(lzToken);
         }
+        stop = true;
+        return
     }
     let token = await getToken();
     if (token.code !== '0') {
