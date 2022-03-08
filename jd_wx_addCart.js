@@ -7,10 +7,10 @@
 cron "10 10 10 10 0" script-path=jd_wx_addCart.js,tag=加购有礼
 配置文件中变量填写：//export M_WX_ADD_CART_URL=""
 */
-let mode = __dirname.includes('magic')
+let mode = __dirname.includes('/home/magic/Work/wools/magic/raw')
 const {Env} = mode ? require('../magic') : require('./magic')
 const $ = new Env('M加购有礼');
-$.lz = 'LZ_TOKEN_KEY=lztokef1eb8494b0af868bd18bdaf8;LZ_TOKEN_VALUE=Aa5RE8RuY4X3zA==;';
+$.lz = 'LZ_TOKEN_KEY=lztokenpage8bde430693894e0ebd1410aff111010a;2QCVCunNfd1vb7FpdSH+VQ==;';
 $.activityUrl = process.env.M_WX_ADD_CART_URL
     ? process.env.M_WX_ADD_CART_URL
     : '';
