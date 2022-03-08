@@ -19,7 +19,7 @@ if (mode) {
     // $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/2f3c55901805489ab47b7cb657ce7a7f?activityId=2f3c55901805489ab47b7cb657ce7a7f'
     $.activityUrl = 'https://cjhy-isv.isvjcloud.com/wxCollectionActivity/activity?activityId=d138c19abad74f3391ae862d089ab667'
     //一键加购
-    $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/c3058177366745e08a7884382290b344?activityId=c3058177366745e08a7884382290b344'
+    $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/ec7c72b06a6d44bb9da50491ddb8ecf6?activityId=ec7c72b06a6d44bb9da50491ddb8ecf6'
 }
 
 $.s = 1
