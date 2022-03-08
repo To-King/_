@@ -41,7 +41,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   }
   if (!jd_redrain_half_url) {
     $.log(`尝试使用默认远程url`);
-    jd_redrain_half_url = 'https://raw.githubusercontent.com/ugg999999/Profiles/master/shareCodes/redrain_half.json'
+    jd_redrain_half_url = 'https://gitee.com/msewb/update/raw/master/m_redrain_half_523820223612.json'
   }
   let hour = (new Date().getUTCHours() + 8) % 24;
   $.log(`\n甘露殿【https://t.me/jdredrain】提醒你:正在远程获取${hour}点30分京豆雨ID\n`);
@@ -49,7 +49,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   let redIds = await getRedRainIds(jd_redrain_half_url)
   if (!redIds || !redIds.length) {
     $.log(`尝试使用cdn`);
-    jd_redrain_half_url = 'https://raw.fastgit.org/ugg999999/Profiles/master/shareCodes/redrain_half.json'
+    jd_redrain_half_url = 'https://gitee.com/msewb/update/raw/master/m_redrain_half_523820223612.json'
     redIds = await getRedRainIds(jd_redrain_half_url)
     if (!redIds || !redIds.length) {
       $.log(`默认远程url获取失败`);
