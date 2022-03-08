@@ -1,16 +1,7 @@
-/*
-[task_local]
-加购有礼
-10 10 10 10 0 jd_wx_addCart.js, tag=加购有礼, enabled=true
-================Loon==============
-[Script]
-cron "10 10 10 10 0" script-path=jd_wx_addCart.js,tag=加购有礼
-配置文件中变量填写：//export M_WX_ADD_CART_URL=""
-*/
-let mode = __dirname.includes('/home/magic/Work/wools/magic/raw')
-const {Env} = mode ? require('../magic') : require('./magic')
+let mode = __dirname.includes('magic')
+const {Env} = mode ? require('./function/magic') : require('./function/magic')
 const $ = new Env('M加购有礼');
-$.lz = 'LZ_TOKEN_KEY=lztokenpage8bde430693894e0ebd1410aff111010a;2QCVCunNfd1vb7FpdSH+VQ==;';
+$.lz = 'LZ_TOKEN_KEY=lztokef1eb8494b0af868bd18bdaf8;LZ_TOKEN_VALUE=Aa5RE8RuY4X3zA==;';
 $.activityUrl = process.env.M_WX_ADD_CART_URL
     ? process.env.M_WX_ADD_CART_URL
     : '';
@@ -19,9 +10,9 @@ if (mode) {
     // $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/2f3c55901805489ab47b7cb657ce7a7f?activityId=2f3c55901805489ab47b7cb657ce7a7f'
     $.activityUrl = 'https://cjhy-isv.isvjcloud.com/wxCollectionActivity/activity?activityId=d138c19abad74f3391ae862d089ab667'
     //一键加购
-    $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/ec7c72b06a6d44bb9da50491ddb8ecf6?activityId=ec7c72b06a6d44bb9da50491ddb8ecf6'
+    $.activityUrl = 'https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/c3058177366745e08a7884382290b344?activityId=c3058177366745e08a7884382290b344'
 }
-let stop = false;
+
 $.s = 1
 if ($.activityUrl.includes('activityId') > -1) {
     $.activityId = $.activityUrl.match(/activityId=([^&]+)/)
@@ -38,27 +29,21 @@ $.logic = async function () {
         return;
     }
     $.activityUrl = $.activityUrl.replace("#","&")
-    $.activityId = $.getQueryString($.activityUrl, 'activityId')
     if (!$.activityId || !$.activityUrl) {
-       // stop = true;
+        stop = true;
         $.log(`活动不存在`);
         return
     }
     $.log(`活动地址: ${$.activityUrl}`)
     $.UA = `jdapp;iPhone;10.2.2;13.1.2;${$.uuid()};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167863;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
     let lzToken = await getLzToken();
-    debugger
     if (typeof lzToken.data == 'string') {
         if (lzToken.data.match(/(活动已经结束)/) && lzToken.data.match(/(活动已经结束)/)[1]
             || '') {
             $.putMsg('活动已结束');
-            //stop = true
-            //return
-        }else {
-            console.log(lzToken);
+            stop = true
+            return
         }
-        stop = true;
-        return
     }
     let token = await getToken();
     if (token.code !== '0') {
@@ -112,6 +97,9 @@ $.logic = async function () {
     await api('wxActionCommon/getUserInfo', `pin=${$.Pin}`)
     let info = await api(
         `miniProgramShareInfo/getInfo?activityId=${$.activityId}`);
+    if (info.result) {
+        $.shareMpTitle = info.data.shareMpTitle;
+    }
     if (content.needFollow && !content.hasFollow) {
         await api(`wxActionCommon/followShop`,
             `userId=${$.venderId}&activityId=${$.activityId}&buyerNick=${encodeURIComponent(
@@ -230,3 +218,4 @@ async function getLzToken() {
     let {data} = await $.request($.activityUrl, headers)
     return data;
 }
+
