@@ -3,19 +3,19 @@ cron 0 0 * * * jd_dpqd.js
 店铺签到，各类店铺签到，有新的店铺直接添加token即可
 搬运cui521大佬脚本，请勿外传！！！
 环境变量:
-DPQDTK: token1&token2
+SHOP_TOKENS: token1&token2
 仓库不再提供token
 */
 let token = []
-if (process.env.DPQDTK) {
-  if (process.env.DPQDTK.includes('\n')) {
-    token = [...process.env.DPQDTK.split('\n'),...token]
+if (process.env.SHOP_TOKENS) {
+  if (process.env.SHOP_TOKENS.includes('\n')) {
+    token = [...process.env.SHOP_TOKENS.split('\n'),...token]
   } else {
-    token = [...process.env.DPQDTK.split('&'),...token]
+    token = [...process.env.SHOP_TOKENS.split('&'),...token]
   }
 }
 if (!token.length) {
-  console.log('无店铺签到token,不执行.需自备token:环境变DPQDTK: tk1&tk2.')
+  console.log('无店铺签到token,不执行.需自备token:环境变SHOP_TOKENS: tk1&tk2.')
   return
 }
 const $ = new Env('店铺签到');
