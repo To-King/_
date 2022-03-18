@@ -8,6 +8,8 @@
 互助码shareCode请先手动运行脚本查看打印可看到
 每个京东账号每天只能帮助3个人。多出的助力码将会助力失败。
 
+// zero205：已添加自己账号内部互助，有剩余助力次数再帮我助力
+
 =====================================Quantumult X=================================
 [task_local]
 1 7-21/2 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_plantBean.js, tag=种豆得豆, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdzd.png, enabled=true
@@ -34,7 +36,6 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 //此此内容是IOS用户下载脚本到本地使用，填写互助码的地方，同一京东账号的好友互助码请使用@符号隔开。
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = ['https://raw.githubusercontent.com/ugg999999/Profiles/master/shareCodes/jd_plantBean.json']
-const ZLC = !(process.env.JD_JOIN_ZLC && process.env.JD_JOIN_ZLC === 'false')
 let allMessage = ``;
 let currentRoundId = null;//本期活动id
 let lastRoundId = null;//上期id
@@ -43,10 +44,7 @@ let awardState = '';//上期活动的京豆是否收取
 let randomCount = $.isNode() ? 20 : 5;
 let num;
 $.newShareCode = [];
-!(async () => {
-  if (!process.env.JD_JOIN_ZLC) {
-    console.log(`【注意】本脚本默认会给助力池进行助力！\n如需加入助力池请添加TG群：https://t.me/jd_zero_205\n如不加入助力池互助，可添加变量名称：JD_JOIN_ZLC，变量值：false\n`)
-  }
+!(async () => {  
   await requireConfig();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
@@ -81,7 +79,7 @@ $.newShareCode = [];
       cookie = cookiesArr[j];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = j + 1;
-      await shareCodesFormat();
+      //await shareCodesFormat();
       await doHelp()
     }
   }
@@ -115,20 +113,6 @@ async function jdPlantBean() {
       console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${$.myPlantUuid}\n`);
       jdPlantBeanShareArr.push($.myPlantUuid)
 
-      // ***************************
-      // 报告运行次数
-      if (ZLC) {
-        for (let k = 0; k < 5; k++) {
-          try {
-            await runTimes()
-            break
-          } catch (e) {
-          }
-          await $.wait(Math.floor(Math.random() * 10 + 3) * 1000)
-        }
-      }
-      // ***************************
-
       roundList = $.plantBeanIndexResult.data.roundList;
       currentRoundId = roundList[num].roundId;//本期的roundId
       lastRoundId = roundList[num - 1].roundId;//上期的roundId
@@ -154,21 +138,6 @@ async function jdPlantBean() {
     // if ($.isNode()) await notify.sendNotify(`${$.name}`, errMsg);
     $.msg($.name, '', `${errMsg}`)
   }
-}
-function runTimes(){
-  return new Promise((resolve, reject) => {
-    $.get({
-        url: `https://api.jdsharecode.xyz/api/runTimes?activityId=bean&sharecode=${$.myPlantUuid}`
-      }, (err, resp, data) => {
-        if (err) {
-        console.log('上报失败', err)
-        reject(err)
-      } else {
-        console.log(data)
-        resolve()
-      }
-    })
-  })
 }
 async function doGetReward() {
   console.log(`【上轮京豆】${awardState === '4' ? '采摘中' : awardState === '5' ? '可收获了' : '已领取'}`);
@@ -437,12 +406,10 @@ function showTaskProcess() {
 }
 //助力好友
 async function doHelp() {
-  if ($.isNode() && !process.env.PLANT_BEAN_SHARECODES) {
-    console.log(`您未填写助力码变量，开始账号内互助，再帮【zero205】助力`);
-    $.newShareCode = [...(jdPlantBeanShareArr || []), ...(newShareCodes || [])]
-  } else {
-    $.newShareCode = newShareCodes
-  }
+
+  console.log(`开始账号内互助`);
+  $.newShareCode = [...(jdPlantBeanShareArr || [])]
+  
   for (let plantUuid of $.newShareCode) {
     console.log(`${$.UserName}开始助力: ${plantUuid}`);
     if (!plantUuid) continue;
@@ -610,7 +577,7 @@ function readShareCode() {
 //格式化助力码
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    console.log(`第${$.index}个京东账号的助力码:::${$.shareCodesArr[$.index - 1]}`)
+    console.log(`第${$.index}个京东账号的助力码:${$.shareCodesArr[$.index - 1]}`)
     newShareCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       newShareCodes = $.shareCodesArr[$.index - 1].split('@');
@@ -619,25 +586,18 @@ function shareCodesFormat() {
       const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
       newShareCodes = shareCodes[tempIndex].split('@');
     }
- /*   if (!ZLC) {
-      console.log(`您设置了不加入助力池，跳过\n`)
-    } else {
-      const readShareCodeRes = await readShareCode();
-      if (readShareCodeRes && readShareCodeRes.code === 200) {
-        newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
-      }
-    }*/ //屏蔽加入助力池
+    
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify(newShareCodes)}`)
     resolve();
   })
 }
 function requireConfig() {
   return new Promise(resolve => {
-    console.log('开始获取种豆得豆配置文件\n')
+    //console.log('开始获取种豆得豆配置文件\n')
     notify = $.isNode() ? require('./sendNotify') : '';
     //Node.js用户请在jdCookie.js处填写京东ck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-    const jdPlantBeanShareCodes = $.isNode() ? require('./jdPlantBeanShareCodes.js') : '';
+    const jdPlantBeanShareCodes = '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
@@ -662,7 +622,7 @@ function requireConfig() {
       console.log(`\nBoxJs设置的${$.name}好友邀请码:${$.getdata('jd_plantbean_inviter') ? $.getdata('jd_plantbean_inviter') : '暂无'}\n`);
     }
     // console.log(`\n种豆得豆助力码::${JSON.stringify($.shareCodesArr)}`);
-    console.log(`您提供了${$.shareCodesArr.length}个账号的种豆得豆助力码\n`);
+    //console.log(`您提供了${$.shareCodesArr.length}个账号的种豆得豆助力码\n`);
     resolve()
   })
 }
