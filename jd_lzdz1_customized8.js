@@ -57,7 +57,7 @@ console.log("活动地址 https://lzdz1-isv.isvjcloud.com/dingzhi/yapei/redenvel
             $.bean = 0;
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-            authorCodeList = []
+            authorCodeList = ['c20a3e38dbde45dd9ca6533c05c52eb0']
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
             $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
