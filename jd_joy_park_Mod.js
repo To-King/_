@@ -78,7 +78,7 @@ message = ""
                 continue
             }
             console.log(`\n\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-            if ($.isNode()) {
+          /*  if ($.isNode()) {
                 if (process.env.HELP_JOYPARK && process.env.HELP_JOYPARK == "false") {
                 } else {
                     await getShareCode()
@@ -98,7 +98,7 @@ message = ""
                         }
                     }
                 }
-            }
+            }*/
             //下地后还有有钱买Joy并且买了Joy
             $.hasJoyCoin = true
             await getJoyBaseInfo(undefined, undefined, undefined, true);
@@ -280,8 +280,8 @@ async function doJoyMergeAll(activityJoyList) {
     let joyBaseInfo = await getJoyBaseInfo()
     let fastBuyLevel = joyBaseInfo.fastBuyLevel
     if (joyMinLevelArr.length >= 2) {
-        $.log(`开始合成 ${minLevel} ${joyMinLevelArr[0].id} <=> ${joyMinLevelArr[1].id} 【限流严重，5秒后合成！如失败会重试】`);
-        await $.wait(5000)
+        $.log(`开始合成 ${minLevel} ${joyMinLevelArr[0].id} <=> ${joyMinLevelArr[1].id} 【限流严重，10秒后合成！如失败会重试】`);
+        await $.wait(10000)
         await doJoyMerge(joyMinLevelArr[0].id, joyMinLevelArr[1].id);
         if (hot_flag) {
             return
