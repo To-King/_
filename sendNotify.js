@@ -20,7 +20,7 @@ export CKNOWARNERROR="true"
 ## 屏蔽青龙登陆成功通知，登陆失败不屏蔽
 export NOTIFY_NOLOGINSUCCESS="true"
 ## 通知底部显示
-export NOTIFY_AUTHOR="来源于：https://github.com/KingRan/KR"
+export NOTIFY_AUTHOR=""
 ## 增加NOTIFY_AUTHOR_BLANK 环境变量，控制不显示底部信息
 export NOTIFY_AUTHOR_BLANK="true"
 ## 增加NOTIFY_AUTOCHECKCK为true才开启通知脚本内置的自动禁用过期ck
@@ -200,7 +200,7 @@ if (process.env.NOTIFY_SHOWNAMETYPE) {
     if (ShowRemarkType == "4")
         console.log("检测到显示备注名称，格式为: 备注");
 }
-async function sendNotify(text, desp, params = {}, author = '\n\n本通知 By https://github.com/KingRan/KR',strsummary="") {
+async function sendNotify(text, desp, params = {}, author = '',strsummary="") {
     console.log(`开始发送通知...`);
 
     if (process.env.NOTIFY_FILTERBYFILE) {
@@ -1668,7 +1668,7 @@ function getRemark(strRemark) {
     }
 }
 
-async function sendNotifybyWxPucher(text, desp, PtPin, author = '\n\n本通知 By ccwav Mod', strsummary = "") {
+async function sendNotifybyWxPucher(text, desp, PtPin, author = '', strsummary = "") {
 
     try {
         var Uid = "";
