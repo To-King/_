@@ -1,4 +1,15 @@
-//问题反馈:https://t.me/Wall_E_Channel
+/*
+甘露殿-https://t.me/jdredrain
+
+自动车监控脚本-M加购有礼
+https://raw.githubusercontent.com/msechen/jdrain/main/m_jd_wx_addCart.js
+
+环境变量
+M_WX_ADD_CART_URL  活动ID 
+
+即时任务，无需cron
+
+*/
 let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M加购有礼');
