@@ -1,6 +1,5 @@
 /*
 /*
-甘露殿-https://t.me/jdredrain
 
 自动车监控脚本-M加购有礼
 https://raw.githubusercontent.com/msechen/jdrain/main/m_jd_wx_addCart.js
@@ -60,7 +59,7 @@ message = '';
     }
   }
   if (allMessage) {
-    if ($.isNode()) await notify.sendNotify(`${$.name}`, `${allMessage}\n甘露殿【https://t.me/jdredrain】`);
+    if ($.isNode()) await notify.sendNotify(`${$.name}`, `${allMessage}`);
     $.msg($.name, '', allMessage);
     }
 })()
