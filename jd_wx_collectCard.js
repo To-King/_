@@ -12,7 +12,7 @@ M_WX_COLLECT_CARD_URL  活动ID
 */
 let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
-const $ = new Env('自动车-M集卡抽奖');
+const $ = new Env('M集卡抽奖');
 $.activityUrl = process.env.M_WX_COLLECT_CARD_URL
     ? process.env.M_WX_COLLECT_CARD_URL
     : '';
