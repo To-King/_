@@ -86,7 +86,7 @@ async function jsRedPacket() {
       await redPacket();//开红包
       await $.wait(2000)
     }
-    await getPacketList();//领红包提现
+//    await getPacketList();//领红包提现
     await signPrizeDetailList();
     await showMsg()
   } catch (e) {
@@ -220,7 +220,7 @@ async function redPacket() {
   })
 }
 
-function getPacketList() {
+/*function getPacketList() {
   return new Promise(resolve => {
     $.get(taskGetUrl("spring_reward_list", {"pageNum":1,"pageSize":100,linkId,"inviter":""}), async (err, resp, data) => {
       try {
@@ -250,7 +250,7 @@ function getPacketList() {
       }
     })
   })
-}
+}*/
 function signPrizeDetailList() {
   return new Promise(resolve => {
     const body = {"linkId":signLinkId,"serviceName":"dayDaySignGetRedEnvelopeSignService","business":1,"pageSize":20,"page":1};
