@@ -20,7 +20,6 @@ Finish
 云函数提示写入失败正常,无任何影响
  */
 console.log('京东多合一签到SCF开始')
-const $ = new Env('京东多合一签到');
 const sendNotify = require('./sendNotify.js').sendNotify
 const fs = require('fs')
 const jr_file = 'JRBODY.txt'
