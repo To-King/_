@@ -87,7 +87,7 @@ async function jsRedPacket() {
       await $.wait(2000)
     }
 //    await getPacketList();//领红包提现
-    await signPrizeDetailList();
+//    await signPrizeDetailList();
     await showMsg()
   } catch (e) {
     $.logErr(e)
@@ -250,7 +250,7 @@ async function redPacket() {
       }
     })
   })
-}*/
+}
 function signPrizeDetailList() {
   return new Promise(resolve => {
     const body = {"linkId":signLinkId,"serviceName":"dayDaySignGetRedEnvelopeSignService","business":1,"pageSize":20,"page":1};
@@ -372,7 +372,7 @@ function cashOut(id, poolBaseId, prizeGroupId, prizeBaseId) {
       }
     })
   })
-}
+}*/
 function taskPostUrl(function_id, body) {
   return {
     url: `https://api.m.jd.com/`,
