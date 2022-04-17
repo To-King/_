@@ -69,7 +69,7 @@ async function main() {
                 await taskPost('signGetEnergy', { "actId": actId, "buyerNick": $.buyerNick, "energyValue": 100, "day": $.signInDay })
 
             }
-            for (let i = 0; i < 3; i++) {
+            /*for (let i = 0; i < 3; i++) {
                 await $.wait(5000);
                 await taskPost('loadShopGroup', { "actId": actId, "buyerNick": $.buyerNick, "shopGroupType": "favouriteShop"})
                 if ($.shopId) {
@@ -96,7 +96,7 @@ async function main() {
                     $.log('加购车.. '+$.shopId)
                     await taskPost('addItemSingle', { "actId": actId, "buyerNick": $.buyerNick, "itemId": $.itemId, "shopId": $.shopId})
                 }
-            }
+            }*/
         } else {
             $.log("没有获取到用户信息")
         }
@@ -136,7 +136,7 @@ function taskPost(function_id, body = {}) {
                                     $.exchangelist = data.data;
                                 }
                                 break;
-                            case 'loadShopGroup':
+                            /*case 'loadShopGroup':
                                 if (data.succ) {
                                     $.shopId = data.data.shopId;
                                 }
@@ -156,7 +156,7 @@ function taskPost(function_id, body = {}) {
                                 if (data.succ) {
                                     $.shopId = data.msg;
                                 }
-                                break;
+                                break;*/
                             default:
                                 $.log(JSON.stringify(data))
                                 break;
