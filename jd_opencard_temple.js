@@ -34,7 +34,7 @@ let activityCookie =''
   $.activityId = process.env.T_OpenCard_activityId;
   $.shareUuid = process.env.T_OpenCard_shareUuid;
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["10831101e0204c98aceecebb79b76f4e","abf010d31c5b4a2193dade58c90ba63d","53160c908846470a925035e32fd5fa4a"]
+  shareUuidArr = [$.shareUuid]
   let s = Math.floor((Math.random()*3))
   let n = 0
   n = Math.floor((Math.random()*shareUuidArr.length))
