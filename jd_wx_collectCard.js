@@ -1,14 +1,6 @@
+//问题反馈:https://t.me/Wall_E_Channel
 /*
-甘露殿-https://t.me/jdredrain
-
-自动车监控脚本-M集卡抽奖
-https://raw.githubusercontent.com/msechen/jdrain/main/m_jd_wx_collectCard.js
-
-环境变量
-M_WX_COLLECT_CARD_URL  活动ID 
-
-即时任务，无需cron
-
+7 7 7 7 7 m_jd_wx_collectCard.js
 */
 let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
@@ -245,5 +237,5 @@ $.after = async function () {
         $.msg.push($.activityUrl);
     }
 }
-$.run({whitelist: ['1-11'], wait: [1000, 3000]}).catch(
+$.run(wait: [1000, 3000]).catch(
     reason => $.log(reason));
