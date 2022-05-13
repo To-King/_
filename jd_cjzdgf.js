@@ -12,8 +12,8 @@ jd_cjhy_activityUrl 活动地址 必需
 解密附言:下列js中的如果有非京东官方服务器绝对不是我的,原作就有,不承担任何责任,有能力者可自行解密对验
 */
 
-let jd_cjhy_activityId="2584bc5fb137415c87cedbb2e56bda3c" // 活动ID
-let jd_cjhy_activityUrl="https://cjhydz-isv.isvjcloud.com" // 活动地址
+let jd_cjhy_activityId="" // 活动ID
+let jd_cjhy_activityUrl="" // 活动地址
 
 const $ = new Env('CJ组队瓜分京豆-加密');
 
@@ -21,8 +21,8 @@ const notify=$.isNode()?require('./sendNotify'):'';
 const jdCookieNode=$.isNode()?require('./jdCookie.js'):'';
 var timestamp=new Date().getTime();
 let cookiesArr=[],cookie='',message='',messageTitle='';
-activityId=$.getdata('jd_kr_cjhy_activityId')?$.getdata('jd_kr_cjhy_activityId'):jd_cjhy_activityId;
-activityUrl=$.getdata('jd_kr_cjhy_activityUrl')?$.getdata('jd_kr_cjhy_activityUrl'):jd_cjhy_activityUrl;
+activityId=$.getdata('jd_cjhy_activityId')?$.getdata('jd_cjhy_activityId'):jd_cjhy_activityId;
+activityUrl=$.getdata('jd_cjhy_activityUrl')?$.getdata('jd_cjhy_activityUrl'):jd_cjhy_activityUrl;
 let activityCookie='';
 if($.isNode()){
 	if(process.env.jd_cjhy_activityId)activityId=process.env.jd_cjhy_activityId;
@@ -688,8 +688,8 @@ function GetCookie(){
 				let _0x4f664b=$request.url.split('/');
 				console.log('activityId: '+_0x4215d3[1]);
 				console.log('activityUrl: '+_0x4f664b[0]+'//'+_0x4f664b[2]);
-				$.setdata(_0x4215d3[1],'jd_kr_cjhy_activityId');
-				$.setdata(_0x4f664b[0]+'//'+_0x4f664b[2],'jd_kr_cjhy_activityUrl');
+				$.setdata(_0x4215d3[1],'jd_cjhy_activityId');
+				$.setdata(_0x4f664b[0]+'//'+_0x4f664b[2],'jd_cjhy_activityUrl');
 				$.msg($.name,'获取activityId: 成功','activityId:'+_0x4215d3[1]+'\nactivityUrl:'+_0x4f664b[0]+'//'+_0x4f664b[2]);
 			}else{
 				$.msg($.name,'找不到activityId','');

@@ -15,15 +15,15 @@ mitm
 解密附言:下列js中的如果有非京东官方服务器绝对不是我的,原作就有,不承担任何责任,有能力者可自行解密对验
 */
 
-let jd_zdjr_activityId = ''// 活动ID
-let jd_zdjr_activityUrl = ''// 活动地址
+let jd_zdjr_activityId=""// 活动ID
+let jd_zdjr_activityUrl=""// 活动地址
 
 const $=new Env('组队瓜分京豆');
 const notify=$.isNode()?require('./sendNotify'):'';
 const jdCookieNode=$.isNode()?require('./jdCookie.js'):'';
 let cookiesArr=[],cookie='',message='',messageTitle='';
-activityId=$.getdata('jd_smiek_zdjr_activityId')?$.getdata('jd_smiek_zdjr_activityId'):jd_zdjr_activityId;
-activityUrl=$.getdata('jd_smiek_zdjr_activityUrl')?$.getdata('jd_smiek_zdjr_activityUrl'):jd_zdjr_activityUrl;
+activityId=$.getdata('jd_zdjr_activityId')?$.getdata('jd_zdjr_activityId'):jd_zdjr_activityId;
+activityUrl=$.getdata('jd_zdjr_activityUrl')?$.getdata('jd_zdjr_activityUrl'):jd_zdjr_activityUrl;
 let activityCookie='';
 if($.isNode()){
 	if(process.env.jd_zdjr_activityId)activityId=process.env.jd_zdjr_activityId;
@@ -518,8 +518,8 @@ function GetCookie(){
 				let _0x3ed1f9=$request.url.split('/');
 				console.log('activityId: '+_0x20d309[1]);
 				console.log('activityUrl: '+_0x3ed1f9[0]+'//'+_0x3ed1f9[2]);
-				$.setdata(_0x20d309[1],'jd_smiek_zdjr_activityId');
-				$.setdata(_0x3ed1f9[0]+'//'+_0x3ed1f9[2],'jd_smiek_zdjr_activityUrl');
+				$.setdata(_0x20d309[1],'jd_zdjr_activityId');
+				$.setdata(_0x3ed1f9[0]+'//'+_0x3ed1f9[2],'jd_zdjr_activityUrl');
 				$.msg($.name,'获取activityId: 成功🎉','activityId:'+_0x20d309[1]+'\nactivityUrl:'+_0x3ed1f9[0]+'//'+_0x3ed1f9[2]);
 			}else{
 				$.msg($.name,'找不到activityId','');
