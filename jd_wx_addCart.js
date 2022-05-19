@@ -178,5 +178,5 @@ $.after = async function () {
         || ''}\n`);
     $.msg.push($.activityUrl)
 }
-$.run(wait: [3000, 5000]).catch(
+$.run({whitelist: ['1-8'], wait: [3000, 5000]}).catch(
     reason => $.log(reason));

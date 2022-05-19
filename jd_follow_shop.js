@@ -1,14 +1,5 @@
 /*
-甘露殿-https://t.me/jdredrain
-
-自动车监控脚本-M关注有礼
-https://raw.githubusercontent.com/msechen/jdrain/main/m_jd_follow_shop.js
-
-环境变量
-M_FOLLOW_SHOP_ARGV  活动ID 
-
-即时任务，无需cron
-
+7 7 7 7 7 m_jd_follow_shop.js
 */
 let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
@@ -68,7 +59,7 @@ $.after = async function () {
         $.msg.push($.activityUrl);
     }
 }
-$.run({wait: [1000, 3000]}).catch(reason => $.log(reason))
+$.run({whitelist: ['1-8'], wait: [1000, 3000]}).catch(reason => $.log(reason))
 
 async function drawShopGift() {
     $.log('店铺信息', $.shopId, $.venderId, $.activityId)
