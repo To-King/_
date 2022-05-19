@@ -41,7 +41,7 @@ message = ""
         return;
     }
      //助力
-    let codeList = ['']
+    let codeList = ['8d1985c3af33461f887d580e9fdecae9']
     $.shareUuid = codeList[Math.floor((Math.random()*codeList.length))]
 
     for (let i = 0; i < cookiesArr.slice(0,10).length; i++) {
