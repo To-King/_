@@ -1,8 +1,8 @@
 //问题反馈:https://t.me/Wall_E_Channel
-/*
-7 7 7 7 7 m_jd_wx_luckDraw.js
-*/
-let mode = __dirname.includes('magic')
+/**
+ cron "1 1 1 1 1" jd_m_wx_luckDraw.js
+ */
+let mode = __dirname.includes('./magic')
 const {Env} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M幸运抽奖');
 $.activityUrl = process.env.M_WX_LUCK_DRAW_URL
@@ -228,4 +228,3 @@ $.after = async function () {
 }
 $.run({whitelist: ['1-8'], wait: [3000, 5000]}).catch(
     reason => $.log(reason));
-
