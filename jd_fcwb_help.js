@@ -125,7 +125,7 @@ let cookiesArr = [],
 let inviteCodes = [];
 $[_0xf531('‮3', 'pdH%')] = ![];
 //删除这里 pTTvJeSTrpthgk9ASBVGsw
-let link = '';
+let link = 'pTTvJeSTrpthgk9ASBVGsw';
 var timestamp = new Date()[_0xf531('‫4', '*wf1')]();
 if ($[_0xf531('‮5', 'A&XH')]()) {
   Object[_0xf531('‮6', ']QD$')](jdCookieNode)[_0xf531('‮7', '8nhJ')](_0x92e0ac => {
