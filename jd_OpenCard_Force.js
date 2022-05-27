@@ -21,7 +21,7 @@ cron:10 10 10 10 *
 
 */
 
-const $ = new Env('入会开卡');
+const $ = new Env('入会开卡领取礼包通用');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 //IOS等用户直接用NobyDa的jd cookie
@@ -96,6 +96,16 @@ async function run() {
             }
             if($.errorJoinShop.indexOf('活动太火爆，请稍后再试') > -1){
                 console.log('第3次 重新开卡')
+                await $.wait(500)
+                await joinShop()
+            }
+			if($.errorJoinShop.indexOf('活动太火爆，请稍后再试') > -1){
+                console.log('第4次 重新开卡')
+                await $.wait(500)
+                await joinShop()
+            }
+			if($.errorJoinShop.indexOf('活动太火爆，请稍后再试') > -1){
+                console.log('第5次 重新开卡')
                 await $.wait(500)
                 await joinShop()
             }
