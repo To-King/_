@@ -1,8 +1,7 @@
-//问题反馈:https://t.me/Wall_E_Channel
-/**
- cron "1 1 1 1 1" jd_m_follow_shop.js
- */
-let mode = __dirname.includes('./magic')
+/*
+7 7 7 7 7 m_jd_follow_shop.js
+*/
+let mode = __dirname.includes('magic')
 const {Env} = mode ? require('./magic') : require('./magic')
 const $ = new Env('M关注有礼');
 $.followShopArgv = process.env.M_FOLLOW_SHOP_ARGV
@@ -60,7 +59,7 @@ $.after = async function () {
         $.msg.push($.activityUrl);
     }
 }
-$.run({whitelist: ['1-8'], wait: [1000, 3000]}).catch(reason => $.log(reason))
+$.run({whitelist: ['1-6'], wait: [1000, 3000]}).catch(reason => $.log(reason))
 
 async function drawShopGift() {
     $.log('店铺信息', $.shopId, $.venderId, $.activityId)
@@ -123,3 +122,4 @@ async function getShopHomeActivityInfo() {
     let {status, data} = await $.request(url, headers, newVar.sign);
     return data;
 }
+
