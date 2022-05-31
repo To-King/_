@@ -32,7 +32,7 @@ let appId, fingerprint, token, enCryptMethodJD;
     }
     $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
     appId = '6a98d';
-    let fglist = ['6289931560897925', '0403403318679778', '1390288884563462'];
+    let fglist = [''];
     fingerprint = getRandomArrayElements(fglist, 1)[0];
     await requestAlgo();
     if ($.CODE618 !== '9999') {
@@ -51,7 +51,7 @@ let appId, fingerprint, token, enCryptMethodJD;
 })().catch((e) => { $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '') }).finally(() => { $.done(); })
 
 async function main(ck, code = 'Jt4KpgH') {
-    const codes = ['']
+    const codes = ['Jt4KpgH','Jwodrl8']
     code = $.CODE618 ? $.CODE618 : codes[random(0, codes.length)]
     // console.log(code)
     let userName = decodeURIComponent(ck.match(/pt_pin=([^; ]+)(?=;?)/) && ck.match(/pt_pin=([^; ]+)(?=;?)/)[1])
