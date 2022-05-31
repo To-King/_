@@ -32,7 +32,7 @@ let appId, fingerprint, token, enCryptMethodJD;
     }
     $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
     appId = '6a98d';
-    let fglist = [''];
+    let fglist = ['6289931560897925', '0403403318679778', '1390288884563462'];
     fingerprint = getRandomArrayElements(fglist, 1)[0];
     await requestAlgo();
     if ($.CODE618 !== '9999') {
